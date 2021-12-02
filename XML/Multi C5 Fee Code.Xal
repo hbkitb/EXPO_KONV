@@ -1,0 +1,77 @@
+﻿xmlport 70062 "Multi C5 FeeCode"
+{
+    
+    Direction = Import;
+    FieldDelimiter = '¤';
+    FieldSeparator = ';';
+    Format = VariableText;
+    TextEncoding = WINDOWS;
+
+    schema
+    {
+        textelement(Afgiftskoder)
+        {
+            tableelement(Table50006; Table50006)
+            {
+                XmlName = 'Fee';
+                fieldelement(FeeCode; Fee.Field1)
+                {
+                }
+                fieldelement(FeeGroup; Fee.Field2)
+                {
+                }
+                fieldelement(FeeDescription; Fee.Field3)
+                {
+                }
+                textelement(FeeTime)
+                {
+                }
+                fieldelement(FeeBasis; Fee.Field5)
+                {
+                }
+                fieldelement(FeeAccount; Fee.Field6)
+                {
+                }
+                fieldelement(FeeOffsetAccount; Fee.Field7)
+                {
+                }
+                fieldelement(FeeReporting; Fee.Field8)
+                {
+                }
+                fieldelement(GenPostingGroup; Fee.Field9)
+                {
+                }
+                fieldelement(FeePubAuthCode; Fee.Field10)
+                {
+                }
+                textelement(FeeTaxCategoriCode)
+                {
+                }
+                textelement(FeeTaxSchemeId)
+                {
+                }
+                textelement(FeeSalesBuy)
+                {
+                }
+            }
+        }
+    }
+
+    requestpage
+    {
+
+        layout
+        {
+        }
+
+        actions
+        {
+        }
+    }
+
+    trigger OnInitXmlPort()
+    begin
+        Table50006.DELETEALL;
+    end;
+}
+

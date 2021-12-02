@@ -1,0 +1,47 @@
+﻿xmlport 70061 "Multi C5 FeeGroup"
+{
+    
+    Direction = Import;
+    FieldDelimiter = '¤';
+    FieldSeparator = ';';
+    Format = VariableText;
+    TextEncoding = WINDOWS;
+
+    schema
+    {
+        textelement(Afgiftsgrupper)
+        {
+            tableelement(Table50005; Table50005)
+            {
+                XmlName = 'FeeGroup';
+                fieldelement(FeeCode; "Fee Group".Field1)
+                {
+                }
+                fieldelement("FeeDescriæption"; "Fee Group".Field2)
+                {
+                }
+                fieldelement(FeeCombine; "Fee Group".Field3)
+                {
+                }
+            }
+        }
+    }
+
+    requestpage
+    {
+
+        layout
+        {
+        }
+
+        actions
+        {
+        }
+    }
+
+    trigger OnInitXmlPort()
+    begin
+        Table50005.DELETEALL;
+    end;
+}
+

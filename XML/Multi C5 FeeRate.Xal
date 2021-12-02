@@ -1,0 +1,46 @@
+﻿xmlport 70063 "Multi C5 FeeRate"
+{
+    Direction = Import;
+    FieldDelimiter = '¤';
+    FieldSeparator = ';';
+    Format = VariableText;
+    TextEncoding = WINDOWS;
+
+    schema
+    {
+        textelement(Afgiftssatser)
+        {
+            tableelement(Table50007; Table50007)
+            {
+                XmlName = 'FeeRate';
+                fieldelement(FeeCode; "Fee Rate".Field1)
+                {
+                }
+                fieldelement(FeeDate; "Fee Rate".Field2)
+                {
+                }
+                fieldelement(FeeRate; "Fee Rate".Field3)
+                {
+                }
+            }
+        }
+    }
+
+    requestpage
+    {
+
+        layout
+        {
+        }
+
+        actions
+        {
+        }
+    }
+
+    trigger OnInitXmlPort()
+    begin
+        Table50007.DELETEALL;
+    end;
+}
+
