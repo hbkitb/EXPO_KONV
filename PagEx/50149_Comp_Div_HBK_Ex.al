@@ -12,7 +12,7 @@ pageextension 50149 Comp_Div_HBK_ERPG extends "Company Information"
         addafter(Codes)
         //addlast(Navigation)
         {
-            action("Konvertering")
+            action("Konvertering")//
             {
                 CaptionML = ENU = 'C5 Data2 Migration',
                                 DAN = 'Konvertering af data fra C5';
