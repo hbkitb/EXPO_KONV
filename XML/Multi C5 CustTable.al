@@ -195,9 +195,9 @@ xmlport 70005 "Multi C5 CustTable"
                                 CustTable.Blocked := CustTable.Blocked::Invoice;
 
                             '2':
-                                CustTable.Blocked := CustTable.Blocked::All;
-                            '3':
                                 CustTable.Blocked := CustTable.Blocked::Ship;
+                            '3':
+                                CustTable.Blocked := CustTable.Blocked::All;
                         end;
                     end;
                 }
