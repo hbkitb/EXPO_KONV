@@ -123,7 +123,7 @@ xmlport 50156 "50156_Imp_KundeVare"
         ItemPostGrp: Record "Inventory Posting Group";
         VirkBog: Record "Gen. Business Posting Group";
         ProdBog: Record "Gen. Product Posting Group";
-        CrossItem: Record "Item Cross Reference";
+        CrossItem: Record "Item Reference";    //"Item Cross Reference";
 
 
     /*
@@ -145,7 +145,8 @@ xmlport 50156 "50156_Imp_KundeVare"
 
         CrossItem.Reset;
         CrossItem.SetRange("Item No.", Felt01);
-        CrossItem.SetRange("Cross-Reference Type No.", Felt02);
+        //CrossItem.SetRange("Cross-Reference Type No.", Felt02);
+        CrossItem.SetRange("Reference No.", Felt02);
 
         if NOT CrossItem.FindSet then begin
 
@@ -156,9 +157,12 @@ xmlport 50156 "50156_Imp_KundeVare"
             //VirkBog.Code := Felt01;
             if Item.Get(Felt01) then begin
                 CrossItem."Item No." := Felt01;
-                CrossItem."Cross-Reference Type" := CrossItem."Cross-Reference Type"::Customer;
-                CrossItem."Cross-Reference Type No." := Felt02;
-                CrossItem."Cross-Reference No." := Felt03;
+                //CrossItem."Cross-Reference Type" := CrossItem."Cross-Reference Type"::Customer;
+                CrossItem."Reference Type" := CrossItem."Reference Type"::Customer;
+                //CrossItem."Cross-Reference Type No." := Felt02;
+                CrossItem."Reference Type No." := Felt02;
+                //CrossItem."Cross-Reference No." := Felt03;
+                CrossItem."Reference No." := Felt03;
                 CrossItem.Validate("Unit of Measure", Item."Base Unit of Measure");
                 CrossItem.Insert;
             end;
